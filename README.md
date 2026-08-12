@@ -15,12 +15,11 @@ Linux-asennus käyttää virallista RPM-pakettivarastoa. Pakettien hallinta ja p
 Aja seuraava komento päätetylassa (terminal) pääkäyttäjänä (`sudo`):
 
 ```bash
-sudo cat <<EOF ## ### (Linux (Releases)]([https://github.com/lestola/CrazyPOS-repo/releases](https://github.com/lestola/CrazyPOS-repo/releases))** (`.exe`) **[Julkaisut --- --now -asennustiedosto. -sivulle. -y / /etc/yum.repos.d/crazypos.repo 1. 2. 3. 4. Asenna Asennus Asennusohje: Automaattiset EOF Jos Käynnistä-valikkoon Lataa Muokkaa Ota Päivitä Repository Siirry Suorita Windows Windows-ympäristöön [commands] [crazypos] `.exe`-asennustiedostona. `/etc/dnf/automatic.conf` `CrazyPOS-UniCenta-vX.X-windows-installer.exe` ``` ```bash ```ini `dnf-automatic`) `dnf-automatic`: aina apply_updates="yes" asenna asennusohjelma aseta: automaattisesti, baseurl="https://lestola.github.io/CrazyPOS-repo/x86_64/" dnf dnf-automatic dnf-automatic.timer enable enabled="1" gpgcheck="1" gpgkey="https://lestola.github.io/CrazyPOS-repo/RPM-GPG-KEY-unicenta" haluat install ja jaellaan joka julkaistaan: kassapäätteen kun käynnistysskriptit käyttöön: luo makecache name="CrazyPOS" ohjeita. pikakuvakkeen, päivittyvän riippuvuudet. ruudulle seuraa sisältää sovellus sudo systemctl tarvittavat taustapalvelu taustapäivitykset tee tiedostoa tulevia työpöydälle unicenta uusi uusin valmiina versio välimuisti | 🔄 🪟> **Huomio:** Varmista, että koneelle on asennettu Java Runtime Environment (JRE 11 tai uudempi) sovelluksen suorittamista varten.
-
----
-
-## 🔄 Julkaisuprosessi (CI/CD)
-
-Kaikki pakettiversiot käännetään automaattisesti GitHub Actions -ympäristössä:
-* **RPM-paketti:** Käännetään Mavenilla, allekirjoitetaan GPG-avaimella ja indeksoidaan tälle Pages-sivustolle.
-* **EXE-asennusohjelma:** Käännetään Mavenilla ja pakataan Inno Setup -työkalulla suoraan GitHub Releases -osioon.
+sudo cat <<EOF | sudo tee /etc/yum.repos.d/crazypos.repo
+[crazypos]
+name=CrazyPOS Repository
+baseurl=https://lestola.github.io/CrazyPOS-repo/x86_64/
+enabled=1
+gpgcheck=1
+gpgkey=https://lestola.github.io/CrazyPOS-repo/RPM-GPG-KEY-unicenta
+EOF
